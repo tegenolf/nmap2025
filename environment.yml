@@ -1,4 +1,4 @@
-name: nmap24
+name: nmap25
 channels:
   - conda-forge
 dependencies:
