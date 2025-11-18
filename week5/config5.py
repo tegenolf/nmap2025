@@ -24,7 +24,7 @@ from scipy.constants import m_p, c, e
 
 from tqdm.notebook import tqdm, trange
 
-def plot_rfwave(phi_s: float = 0.5, regime: string = 'classical') -> figure.axes:
+def plot_rfwave(phi_s: float = 0.5, regime: str = 'classical') -> matplotlib.axes._axes.Axes:
     phi = np.linspace(-1.5, 7, 1000)
 
     plt.plot(phi, np.sin(phi), c='k')
