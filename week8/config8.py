@@ -30,40 +30,40 @@ import PyNAFF
 import pysixtrack
 from pysixtrack import elements
 
-def M_drift(L: float) -> np.array:
+def M_drift(L: float) -> np.ndarray:
     return np.array([
         [1, L],
         [0, 1]
     ])
 
-def M_dip_x(L: float, rho0: float) -> np.array:
+def M_dip_x(L: float, rho0: float) -> np.ndarray:
     return np.array([
         [np.cos(L / rho0), rho0 * np.sin(L / rho0)],
         [-1 / rho0 * np.sin(L / rho0), np.cos(L / rho0)]
     ])
 
-def M_dip_y(L: float, rho0: float) -> np.array:
+def M_dip_y(L: float, rho0: float) -> np.ndarray:
     return M_drift(L)
 
-def M_quad_x(L: float, k: float) -> np.array:
+def M_quad_x(L: float, k: float) -> np.ndarray:
     ksq = np.sqrt(k + 0j)
     return np.array([
         [np.cos(ksq * L), 1 / ksq * np.sin(ksq * L)],
         [-ksq * np.sin(ksq * L), np.cos(ksq * L)]
     ]).real
 
-def M_quad_y(L: float, k: float) -> np.array:
+def M_quad_y(L: float, k: float) -> np.ndarray:
     ksq = np.sqrt(k + 0j)
     return np.array([
         [np.cosh(ksq * L), 1 / ksq * np.sinh(ksq * L)],
         [ksq * np.sinh(ksq * L), np.cosh(ksq * L)]
     ]).real
 
-def track(M: np.array, u: np.array, up: np.array) -> np.array:
+def track(M: np.ndarray, u: np.ndarray, up: np.ndarray) -> np.ndarray:
     '''Apply M to each individual [u;up] vectors value.'''
     return np.einsum('ij...,...j->i...', M, np.vstack((u, up)).T)
 
-def track_sext_4D(x: float | np.array, xp: float | np.array, y: float | np.array, yp: float | np.array, mL: float | np.array) -> tuple:
+def track_sext_4D(x: float | np.ndarray, xp: float | np.ndarray, y: float | np.ndarray, yp: float | np.ndarray, mL: float | np.ndarray) -> tuple:
     xp += 0.5 * mL * (y * y - x * x)
     yp += mL * x * y
     return x, xp, y, yp
