@@ -14,7 +14,6 @@ pysixtrack ==0.0.6
 #scikit-image==0.19.3
 scikit-image==0.24.0
 pillow==9.2.0
-#longitudinal-tomography==3.4.3
-longitudinal-tomography==3.7.0
+longitudinal-tomography==3.4.3
 ipykernel==6.29.5
 celluloid==0.2.0
