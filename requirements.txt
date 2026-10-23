@@ -12,7 +12,7 @@ Cython==3.0.5
 cpymad ==1.14.2
 pysixtrack ==0.0.6
 #scikit-image==0.19.3
-scikit-image==0.26.0
+scikit-image==0.24.0
 pillow==9.2.0
 #longitudinal-tomography==3.4.3
 longitudinal-tomography==3.7.0
